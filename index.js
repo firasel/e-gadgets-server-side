@@ -9,7 +9,6 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 app.use(cors());
 app.use(express.json());
 
-
 app.get('/',(req,res)=>{
     res.send('api is working')
 })
@@ -58,8 +57,6 @@ client.connect(err => {
         productCollection.deleteOne({_id:ObjectID(id)})
         .then(result=>res.send(result.deletedCount > 0))
     })
-
-    console.log('database connected')
 });
 
 
